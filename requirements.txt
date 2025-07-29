@@ -1,1 +1,15 @@
 langchain
+langchain-core
+langchain-huggingface
+
+langchain-openai
+openai
+
+python-dotenv
+
+typing
+
+pydantic
+pydantic[email]
+
+streamlit
