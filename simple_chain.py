@@ -5,10 +5,12 @@ from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
 
-model = HuggingFaceEndpoint(
+llm = HuggingFaceEndpoint(
     repo_id='google/gemma-2-2b-it',
     task='text-generation'
 )
+
+model = ChatHuggingFace(llm = llm)
 
 prompt = PromptTemplate(
     prompt='Generate 5 interesting facts about {topic}',
@@ -22,3 +24,5 @@ chain = prompt | model | parser
 result = chain.invoke({'topic': 'cricket'})
 
 print(result)
+
+chain.get_graph().print_ascii()
